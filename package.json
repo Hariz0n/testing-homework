@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "type": "commonjs",
     "scripts": {
-        "start": "cross-env BUG_ID=2 nodemon ./src/server/index.ts",
+        "start": "cross-env BUG_ID=7 nodemon ./src/server/index.ts",
         "test:unit": "cross-env BUG_ID=0 jest ./test/unit",
         "test:e2e": "hermione --require ts-node/register",
         "test:e2e:gui": "cross-env BUG_ID=0 hermione --require ts-node/register gui",

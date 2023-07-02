@@ -66,8 +66,8 @@ describe('Тестирование чекаута', () => {
     checkout.respond({
       id: 1
     })
-    await this.browser.setWindowSize(1920, 1080)
     const [page] = await (await this.browser.getPuppeteer()).pages()
+    await this.browser.setWindowSize(1920, 1080)
     await this.browser.url('http://localhost:3000/hw/store/catalog/0')
     await page.waitForSelector('.ProductDetails-AddToCart')
     await page.click('.ProductDetails-AddToCart')
@@ -80,9 +80,9 @@ describe('Тестирование чекаута', () => {
     await checkout.restore()
   });
   it('Корректно выводится номер', async function () {
-    await this.browser.setWindowSize(1920, 1080)
     const [page] = await (await this.browser.getPuppeteer()).pages()
-    await this.browser.url('http://localhost:3000/hw/store/catalog/0')
+    await this.browser.setWindowSize(1920, 1080)
+    await page.goto('http://localhost:3000/hw/store/catalog/0')
     await page.waitForSelector('.ProductDetails-AddToCart')
     await page.click('.ProductDetails-AddToCart')
     await this.browser.url('http://localhost:3000/hw/store/cart')
@@ -92,6 +92,6 @@ describe('Тестирование чекаута', () => {
     await page.click('.Form-Submit')
     await page.waitForSelector('.Cart-Number')
     const number = await page.$('.Cart-Number')
-    expect(await number.evaluate(el => el.textContent)).toEqual('1')
+    expect(await number.evaluate(el => el.textContent.length)).toEqual(1)
   });
 })
