@@ -5,8 +5,7 @@
     ],
     "parser": "@typescript-eslint/parser",
     "plugins": [
-        "@typescript-eslint",
-        "jest-dom"
+        "@typescript-eslint"
     ],
     "root": true,
     "env": {

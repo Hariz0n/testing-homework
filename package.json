@@ -3,10 +3,10 @@
     "version": "1.0.0",
     "type": "commonjs",
     "scripts": {
-        "start": "cross-env BUG_ID=0 nodemon ./src/server/index.ts",
+        "start": "cross-env BUG_ID=2 nodemon ./src/server/index.ts",
         "test:unit": "cross-env BUG_ID=0 jest ./test/unit",
         "test:e2e": "hermione --require ts-node/register",
-        "test:e2e:gui": "hermione --require ts-node/register gui",
+        "test:e2e:gui": "cross-env BUG_ID=0 hermione --require ts-node/register gui",
         "test": "cross-env BUG_ID=0 npm run test:unit $$ npm run test:e2e",
         "build": "webpack --mode=production --node-env=production",
         "watch": "webpack --watch"
